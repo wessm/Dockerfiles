@@ -42,8 +42,8 @@ RUN conda install --yes \
     'beautifulsoup4=4.5.*' \
     'protobuf=3.*' \
     'xlrd' \
-    'opencv' \
     'nb_conda' && \
+    conda install --channel conda-forge --yes 'opencv ' && \
     conda clean -tipsy && \
     # Activate ipywidgets extension in the environment that runs the notebook server
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \

@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
 
+LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils sudo && apt-get install -y --no-install-recommends nano wget software-properties-common python-software-properties
 

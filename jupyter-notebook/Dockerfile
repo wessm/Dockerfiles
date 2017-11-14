@@ -44,10 +44,12 @@ RUN conda install --yes \
     'nb_conda' && \
     conda install --channel conda-forge --yes 'opencv ' && \
     conda clean -tipsy && \
+    conda install --channel r r-essentials && \
     # Activate ipywidgets extension in the environment that runs the notebook server
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     fix-permissions $CONDA_DIR && \
-    pip install notebook --upgrade --pre
+    pip install notebook --upgrade --pre && \
+    pip install rpy2 cython fortran-magic
 
 # Install facets which does not have a pip or conda package at the moment
 RUN cd /tmp && \

@@ -1,8 +1,7 @@
-# Copyright (c) Jupyter Development Team.
-# Distributed under the terms of the Modified BSD License.
+# based on official jupyter image, modified for me
 FROM jupyter/minimal-notebook
 
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
+LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
 USER root
 

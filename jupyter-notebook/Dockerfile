@@ -6,7 +6,12 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 USER root
 
 # libav-tools for matplotlib anim
-RUN apt-get update && \
+RUN apt-get update -y && \
+    apt-get --yes --no-install-recommends install software-properties-common libreadline-dev && \
+    apt-add-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/" -y &&  \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
+    apt-add-repository ppa:marutter/rdev -y && \
+    apt-get update && \
     apt-get install -y --no-install-recommends libav-tools && \
     apt-get install -y --no-install-recommends r-base r-recommended && \
     apt-get clean && \

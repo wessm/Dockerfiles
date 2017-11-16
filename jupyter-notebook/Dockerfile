@@ -48,10 +48,10 @@ RUN conda install --yes \
     'protobuf=3.*' \
     'xlrd' \
     'nb_conda' && \
-    conda install --channel conda-forge --yes 'opencv ' && \
+    conda install --channel conda-forge --yes 'opencv' && \
     conda clean -tipsy && \
-    conda install --channel r r-essentials && \
-    # Activate ipywidgets extension in the environment that runs the notebook server
+    conda install --channel r r-essentials && \ 
+     # Activate ipywidgets extension in the environment that runs the notebook server
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     fix-permissions $CONDA_DIR && \
     pip install notebook --upgrade --pre && \
@@ -63,12 +63,13 @@ RUN cd /tmp && \
     cd facets && \
     jupyter nbextension install facets-dist/ --sys-prefix && \
     rm -rf facets && \
-    fix-permissions $CONDA_DIR
+    fix-permissions $CONDA_DIR 
 
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
-    fix-permissions /home/$NB_USER
+    fix-permissions /home/$NB_USER  && \
+    conda install --channel conda-forge --yes 'jupyter_contrib_nbextensions'
 
 USER $NB_USER
 

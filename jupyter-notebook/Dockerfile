@@ -55,7 +55,7 @@ RUN conda install --yes \
     jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
     fix-permissions $CONDA_DIR && \
     pip install notebook --upgrade --pre && \
-    pip install rpy2 cython fortran-magic
+    pip install rpy2 imutils cython fortran-magic
 
 # Install facets which does not have a pip or conda package at the moment
 RUN cd /tmp && \

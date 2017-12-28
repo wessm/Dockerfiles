@@ -12,7 +12,7 @@ RUN apt-get update -y && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
     apt-add-repository ppa:marutter/rdev -y && \
     apt-get update && \
-    apt-get install -y --no-install-recommends libav-tools && \
+    apt-get install -y --no-install-recommends libav-tools exiftool && \
     apt-get install -y --no-install-recommends r-base r-recommended imagemagick && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -63,7 +63,9 @@ RUN cd /tmp && \
     cd facets && \
     jupyter nbextension install facets-dist/ --sys-prefix && \
     rm -rf facets && \
-    fix-permissions $CONDA_DIR
+    fix-permissions $CONDA_DIR && \
+	cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
+	cd pyexiftool && python setup.py install
 
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME /home/$NB_USER/.cache/

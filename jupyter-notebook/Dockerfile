@@ -19,31 +19,19 @@ RUN apt-get update -y && \
 
 USER $NB_USER
 
-# Install Python 3 packages
-# Remove pyqt and qt pulled in for matplotlib since we're only ever going to
 # use notebook-friendly backends in these images
 RUN conda install --yes \
     'nb_conda' && \
     conda install --channel conda-forge --yes 'opencv' && \
     conda clean -tipsy && \
     conda install --channel r r-essentials && \
-     # Activate ipywidgets extension in the environment that runs the notebook server
-    jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
-    fix-permissions $CONDA_DIR && \
-    pip install notebook --upgrade --pre && \
     pip install rpy2 imutils cython fortran-magic
 
-# Install facets which does not have a pip or conda package at the moment
-RUN fix-permissions $CONDA_DIR && \
-	cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
+RUN cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
 	cd pyexiftool && python setup.py install && \
 	rm -rf pyexiftool
 
-# Import matplotlib the first time to build the font cache.
-ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
-RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
-    fix-permissions /home/$NB_USER  && \
-    conda install --channel conda-forge --yes 'jupyter_contrib_nbextensions'
+RUN conda install --channel conda-forge --yes 'jupyter_contrib_nbextensions'
 
 USER $NB_USER
 

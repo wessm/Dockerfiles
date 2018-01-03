@@ -21,7 +21,7 @@ USER $NB_USER
 
 # use notebook-friendly backends in these images
 RUN conda install --yes \
-    'nb_conda' && \
+    'nb_conda' 'line_profiler' && \
     conda install --channel conda-forge --yes 'opencv' && \
     conda clean -tipsy && \
     conda install --channel r r-essentials && \

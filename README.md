@@ -44,11 +44,11 @@ runs as user mischa
 ```
 xhost +
 docker run  --rm --name qgis \
-	-i -t \
-	-v ${HOME}:/home/mischa \
-	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	-e DISPLAY=unix$DISPLAY \
-	wessm/qgis
+    -i -t \
+    -v ${HOME}:/home/mischa \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    wessm/qgis
 xhost -
 ```
 

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#rm -rf README.md
+#touch README.md
+
+cat > README.md << "EOL"
+
+# Dockerfiles
+
+Dockerfile repository; automatically built at [docker hub](https://hub.docker.com/u/wessm/)
+
+For details, see specific READMEs:
+
+
+
+EOL
+
+#  loop through dir
+for d in */ ; do
+	name=${d%/}
+	printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/README.md)\n\n" >> README.md
+done
+
+
+
+

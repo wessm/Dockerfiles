@@ -6,8 +6,8 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 USER $NB_USER
 
 # use notebook-friendly backends in these images
-RUN conda install --yes \
-    conda install --channel conda-forge --yes 'opencv' && \
+RUN conda install --channel conda-forge --yes \
+	'opencv' && \
 	conda install --quiet --yes \
     'r-base=3.3.2' \
     'r-irkernel=0.7*' \

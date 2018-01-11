@@ -1,11 +1,11 @@
 # jupyter-notebook-base
 
-fully functional jupyter notebook, based on jupyter/scipy-notebook
+fully functional jupyter notebook, based on [jupyter/scipy-notebook](https://hub.docker.com/r/jupyter/scipy-notebook/)
 
 
 icludes:
 
-* *R + python
+* R + python
 * line profiler
 * conda extension for juptyter-notebook
 

@@ -23,6 +23,15 @@ icludes:
 runs as user jovyan
 
 
+can be run e.g. with
+
+```
+docker run --rm -it \
+	-p 8888:8888 \
+	-v ${HOME}:/home/jovyan/work \
+    wessm/jupyter-notebook-opencv
+```
+
 
 
 
@@ -32,6 +41,16 @@ QGIS from http://qgis.org
 
 runs as user mischa
 
+```
+xhost +
+docker run  --rm --name qgis \
+	-i -t \
+	-v ${HOME}:/home/mischa \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-e DISPLAY=unix$DISPLAY \
+	wessm/qgis
+xhost -
+```
 
 
 
@@ -39,3 +58,12 @@ runs as user mischa
 ## orfeo
 
 orfeo toolbox from ubuntugis-unstable
+
+
+```
+docker run --rm -it \
+	-v ${HOME}:/home/data \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-e DISPLAY=unix$DISPLAY \
+    wessm/orfeo
+```

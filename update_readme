@@ -18,7 +18,7 @@ EOL
 #  loop through dir
 for d in */ ; do
 	name=${d%/}
-	printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/README.md)\n\n" >> README.md
+	printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> README.md
 done
 
 

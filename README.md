@@ -7,11 +7,11 @@ For details, see specific READMEs:
 
 
 
-* [jupyter-notebook-base](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-base/README.md)
+* [jupyter-notebook-base](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-base/)
 
-* [jupyter-notebook-packages](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages/README.md)
+* [jupyter-notebook-packages](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages/)
 
-* [orfeo](https://github.com/wessm/Dockerfiles/tree/master/orfeo/README.md)
+* [orfeo](https://github.com/wessm/Dockerfiles/tree/master/orfeo/)
 
-* [qgis](https://github.com/wessm/Dockerfiles/tree/master/qgis/README.md)
+* [qgis](https://github.com/wessm/Dockerfiles/tree/master/qgis/)
 

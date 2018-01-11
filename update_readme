@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#rm -rf README.md
-#touch README.md
 
 cat > README.md << "EOL"
 

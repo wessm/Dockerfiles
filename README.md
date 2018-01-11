@@ -3,7 +3,12 @@
 Dockerfile repo; automatically built at https://hub.docker.com/u/wessm/
 
 
-### jupyter-notebook-opencv
+
+
+
+
+
+## jupyter-notebook-opencv
 
 based on jupyter/scipy-notebook;
 
@@ -17,12 +22,20 @@ icludes:
 
 runs as user jovyan
 
-### qgis
+
+
+
+
+## qgis
 
 QGIS from http://qgis.org
 
 runs as user mischa
 
-### orfeo
+
+
+
+
+## orfeo
 
 orfeo toolbox from ubuntugis-unstable

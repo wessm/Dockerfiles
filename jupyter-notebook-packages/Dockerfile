@@ -37,6 +37,4 @@ RUN conda install --channel conda-forge --yes \
 	rm -rf pyexiftool
 
 
-RUN R CMD INSTALL geojsonio
-
-
+RUN Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")'

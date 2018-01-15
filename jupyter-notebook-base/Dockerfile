@@ -13,7 +13,7 @@ RUN apt-get update -y && \
     apt-add-repository ppa:marutter/rdev -y && \
     apt-get update && \
     apt-get install -y --no-install-recommends libgeos-dev exiftool && \
-    apt-get install -y --no-install-recommends r-base r-recommended imagemagick \
+    apt-get install -y --no-install-recommends imagemagick \
 	fonts-dejavu \
     tzdata \
     gfortran \

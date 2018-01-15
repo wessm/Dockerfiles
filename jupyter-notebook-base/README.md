@@ -5,7 +5,7 @@ fully functional jupyter notebook, based on [jupyter/scipy-notebook](https://hub
 
 icludes:
 
-* R + python
+
 * line profiler
 * conda extension for juptyter-notebook
 

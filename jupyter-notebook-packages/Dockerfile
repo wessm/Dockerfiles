@@ -9,7 +9,8 @@ USER $NB_USER
 RUN conda install --channel conda-forge --yes \
 	'opencv' && \
 	conda install --quiet --yes \
-    'r-base=3.3.2' \
+	'r-raster' \
+	'r-base=3.3.2' \
     'r-irkernel=0.7*' \
     'r-plyr=1.8*' \
     'r-devtools=1.12*' \
@@ -23,9 +24,8 @@ RUN conda install --channel conda-forge --yes \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
     'r-crayon=1.3*' \
-	'r-randomforest=4.6*' && \
-    conda install -c r --yes \
-	'r-raster' \
+    'r-randomforest=4.6*' \
+	'r-hexbin=1.27*' \
 	'r-rgeos' \
 	'r-jsonlite' \
 	'r-rcurl' \

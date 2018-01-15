@@ -8,9 +8,9 @@ USER $NB_USER
 # use notebook-friendly backends in these images
 RUN conda install --channel conda-forge --yes \
 	'opencv' && \
-	conda install --quiet --yes \
+	conda install --quiet --channel r --yes \
 	'r-raster' \
-	'r-base=3.3.2' \
+	'r-base' \
     'r-irkernel=0.7*' \
     'r-plyr=1.8*' \
     'r-devtools=1.12*' \

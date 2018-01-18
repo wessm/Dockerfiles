@@ -7,6 +7,8 @@ For details, see specific READMEs:
 
 
 
+* [gdal](https://github.com/wessm/Dockerfiles/tree/master/gdal/)
+
 * [jupyter-notebook-base](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-base/)
 
 * [jupyter-notebook-packages](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages/)

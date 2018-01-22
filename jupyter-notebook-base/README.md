@@ -5,9 +5,10 @@ fully functional jupyter notebook, based on [jupyter/scipy-notebook](https://hub
 
 icludes:
 
-
-* line profiler
-* conda extension for juptyter-notebook
+* R
+* gdal
+* imagemagick
+* contrib-extension for juptyter-notebook
 
 runs as user jovyan
 

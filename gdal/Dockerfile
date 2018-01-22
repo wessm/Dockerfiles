@@ -1,3 +1,4 @@
+#  geodata/gdal as base image
 FROM geodata/gdal
 
 LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"

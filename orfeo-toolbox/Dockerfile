@@ -11,6 +11,8 @@ RUN apt-get update -y && \
 	apt-get clean &&\
 	rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT /home/data
+WORKDIR /home/data
+
+ENTRYPOINT
 
 CMD ["/bin/bash"]

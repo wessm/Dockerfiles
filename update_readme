@@ -1,7 +1,9 @@
 #!/bin/bash
 
+if [[ "$BRANCH" == "master" ]]; then
 
-cat > README.md << "EOL"
+
+	cat > README.md << "EOL"
 
 # Dockerfiles
 
@@ -13,11 +15,14 @@ For details, see specific READMEs:
 
 EOL
 
-#  loop through dir
-for d in */ ; do
-	name=${d%/}
-	printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> README.md
-done
+	#  loop through dir
+	for d in */ ; do
+		name=${d%/}
+		printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> README.md
+	done
+
+	echo "README updated!"
+fi
 
 
 

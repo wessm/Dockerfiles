@@ -13,7 +13,7 @@ For details, see specific READMEs:
 
 * [jupyter-notebook-packages](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages/)
 
-* [orfeo](https://github.com/wessm/Dockerfiles/tree/master/orfeo/)
+* [orfeo-toolbox](https://github.com/wessm/Dockerfiles/tree/master/orfeo-toolbox/)
 
 * [qgis](https://github.com/wessm/Dockerfiles/tree/master/qgis/)
 

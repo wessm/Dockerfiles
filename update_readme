@@ -1,9 +1,13 @@
 #!/bin/bash
 
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
 if [[ "$BRANCH" == "master" ]]; then
 
+	dir=`git rev-parse --show-toplevel 2> /dev/null`
 
-	cat > README.md << "EOL"
+
+	cat > ${dir}/README.md << "EOL"
 
 # Dockerfiles
 
@@ -16,9 +20,9 @@ For details, see specific READMEs:
 EOL
 
 	#  loop through dir
-	for d in */ ; do
-		name=${d%/}
-		printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> README.md
+	for d in ${dir}/*/ ; do
+		name=$(basename ${d%/})
+		printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> ${dir}/README.md
 	done
 	echo "README updated!"
 fi

@@ -11,14 +11,14 @@ RUN apt-get update -y && \
     apt-add-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/" -y &&  \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
     apt-add-repository ppa:marutter/rdev -y && \
-	add-apt-repository ppa:ubuntugis/ppa -y && \
+    add-apt-repository ppa:ubuntugis/ppa -y && \
     apt-get update && \
     apt-get install -y --no-install-recommends libgeos-dev exiftool libgdal-dev gdal-bin && \
     apt-get install -y --no-install-recommends imagemagick \
-	fonts-dejavu \
+    fonts-dejavu \
     tzdata \
     gfortran \
-	gcc && \
+    gcc && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -28,5 +28,5 @@ USER $NB_USER
 RUN conda install --yes \
     'nb_conda' 'line_profiler' && \
     conda clean -tipsy && fix-permissions $CONDA_DIR && \
-	conda install --channel conda-forge --yes 'jupyter_contrib_nbextensions'
+    conda install --channel conda-forge --yes 'jupyter_contrib_nbextensions'
 

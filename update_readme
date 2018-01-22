@@ -20,7 +20,6 @@ EOL
 		name=${d%/}
 		printf "* [${name}](https://github.com/wessm/Dockerfiles/tree/master/${name}/)\n\n" >> README.md
 	done
-
 	echo "README updated!"
 fi
 

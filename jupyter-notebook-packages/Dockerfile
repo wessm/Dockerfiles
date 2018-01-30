@@ -37,4 +37,11 @@ RUN conda install --channel conda-forge --yes \
     rm -rf pyexiftool
 
 
-RUN Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")'
+RUN Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")' && \
+	jupyter nbextension enable code_prettify/autopep8 && \
+	jupyter nbextension enable code_prettify/code_prettify && \
+	jupyter nbextension enable varInspector/main && \
+	jupyter nbextension enable codefolding/main && \
+	jupyter nbextension enable hinterland/hinterlanvarInspector/main && \
+	jupyter nbextension enable codefolding/main && \
+	jupyter nbextension enable hinterland/hinterland

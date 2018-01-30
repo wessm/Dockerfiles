@@ -31,7 +31,7 @@ RUN conda install --channel conda-forge --yes \
     'r-rcurl' \
     'r-plyr' && \
     conda clean -tipsy && fix-permissions $CONDA_DIR && \
-    pip install rpy2 imutils cython fortran-magic && \
+    pip install rpy2 imutils cython fortran-magic autopep8 yapf && \
     cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
     cd pyexiftool && python setup.py install && \
     rm -rf pyexiftool
@@ -44,4 +44,7 @@ RUN Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/"
 	jupyter nbextension enable codefolding/main && \
 	jupyter nbextension enable hinterland/hinterlanvarInspector/main && \
 	jupyter nbextension enable codefolding/main && \
-	jupyter nbextension enable hinterland/hinterland
+	jupyter nbextension enable hinterland/hinterland && \
+	jupyter nbextension enable init_cell/main && \
+	jupyter nbextension enable runtools/main && \
+	jupyter nbextension enable scratchpad/main

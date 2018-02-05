@@ -5,7 +5,7 @@ based on the [GDAL-Docker](https://github.com/geo-data/gdal-docker) images; just
 
 ```
 docker run -it --rm \
-    -v ${HOME}:/home/data \
+    -v ${HOME}:/data \
     wessm/gdal gdalcopyproj.py [data]
 ```
 

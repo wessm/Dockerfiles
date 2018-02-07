@@ -7,4 +7,6 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 ADD gdalcopyproj.py /usr/bin/
 RUN chmod +x /usr/bin/gdalcopyproj.py
 
+
+RUN useradd -ms /bin/bash mischa
 USER mischa

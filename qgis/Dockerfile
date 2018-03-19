@@ -7,6 +7,8 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils sudo && apt-get install -y --no-install-recommends nano wget software-properties-common python-software-properties
 
+
+
 RUN echo "deb http://qgis.org/debian xenial main" >> /etc/apt/sources.list
 RUN echo "deb-src http://qgis.org/debian xenial main " >> /etc/apt/sources.list
 RUN wget -O - http://qgis.org/downloads/qgis-2017.gpg.key | gpg --import

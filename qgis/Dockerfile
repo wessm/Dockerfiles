@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 
 ENV TERM linux
 ENV DEBIAN_FRONTEND noninteractive
@@ -9,14 +9,14 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends apt-utils su
 
 
 
-RUN echo "deb http://qgis.org/debian xenial main" >> /etc/apt/sources.list
-RUN echo "deb-src http://qgis.org/debian xenial main " >> /etc/apt/sources.list
+RUN echo "deb http://qgis.org/debian artful main" >> /etc/apt/sources.list
+RUN echo "deb-src http://qgis.org/debian artful main " >> /etc/apt/sources.list
 RUN wget -O - http://qgis.org/downloads/qgis-2017.gpg.key | gpg --import
 RUN gpg --fingerprint CAEB3DC3BDF7FB45
 RUN gpg --export --armor CAEB3DC3BDF7FB45 | sudo apt-key add -
 
 
-RUN apt-get update -y && apt-get install qgis python-qgis -y
+RUN apt-get update -y && apt-get install qgis qgis-providers python-qgis -y
 
 # Replace 1000 with your user / group id
 RUN export uid=1000 gid=1000 && \

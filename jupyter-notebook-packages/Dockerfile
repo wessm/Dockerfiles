@@ -31,7 +31,7 @@ RUN conda install --channel conda-forge --yes \
     'r-rcurl' \
     'r-plyr' && \
     conda clean -tipsy && fix-permissions $CONDA_DIR && \
-    pip install rpy2 imutils cython fortran-magic autopep8 yapf && \
+    pip install psycopg2 geopandas shapely rpy2 imutils cython fortran-magic autopep8 yapf && \
     cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
     cd pyexiftool && python setup.py install && \
     rm -rf pyexiftool

@@ -1,50 +1,35 @@
 # based on base image
-FROM wessm/jupyter-notebook-base
+FROM wessm/jupyter-notebook-r
 
 LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
+USER root
+
+RUN	add-apt-repository 'deb http://mirror.ibcp.fr/pub/CRAN/bin/linux/ubuntu xenial/' && \
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
+	apt-get update -y && \
+	apt-get upgrade -y && \
+	apt-get build-dep python-gdal -y && \
+	apt-get install -y \
+		libgdal1-dev \
+		libproj-dev \
+		libgeos-dev \
+		libgdal-dev \
+		libgdal1i \
+		libv8-3.14-dev \
+		python-gdal && \
+	apt-get clean autoclean && \
+	apt-get autoremove -y && \
+	rm -rf /var/lib/apt/lists/*
+
 USER $NB_USER
 
-# use notebook-friendly backends in these images
-RUN conda install --channel conda-forge --yes \
-    'opencv' && \
-    conda install --quiet --channel r --yes \
-    'r-raster' \
-    'r-base' \
-    'r-irkernel=0.7*' \
-    'r-plyr=1.8*' \
-    'r-devtools=1.12*' \
-    'r-tidyverse=1.0*' \
-    'r-shiny=0.14*' \
-    'r-rmarkdown=1.2*' \
-    'r-forecast=7.3*' \
-    'r-rsqlite=1.1*' \
-    'r-reshape2=1.4*' \
-    'r-nycflights13=0.2*' \
-    'r-caret=6.0*' \
-    'r-rcurl=1.95*' \
-    'r-crayon=1.3*' \
-    'r-randomforest=4.6*' \
-    'r-hexbin=1.27*' \
-    'r-rgeos' \
-    'r-jsonlite' \
-    'r-rcurl' \
-    'r-plyr' && \
-    conda clean -tipsy && fix-permissions $CONDA_DIR && \
-    pip install psycopg2-binary pyshp gdal geopandas shapely rpy2 imutils cython fortran-magic autopep8 yapf && \
-    cd /tmp && git clone git://github.com/smarnach/pyexiftool.git && \
-    cd pyexiftool && python setup.py install && \
-    rm -rf pyexiftool
-
-
-RUN Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")' && \
+#RUN	conda install -c conda-forge gdal -y && \
+#RUN	Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")' && \
+RUN conda install GDAL -y && \
 	jupyter nbextension enable code_prettify/autopep8 && \
-	jupyter nbextension enable code_prettify/code_prettify && \
 	jupyter nbextension enable varInspector/main && \
 	jupyter nbextension enable codefolding/main && \
-	jupyter nbextension enable hinterland/hinterlanvarInspector/main && \
-	jupyter nbextension enable codefolding/main && \
 	jupyter nbextension enable hinterland/hinterland && \
-	jupyter nbextension enable init_cell/main && \
 	jupyter nbextension enable runtools/main && \
 	jupyter nbextension enable scratchpad/main

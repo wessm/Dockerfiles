@@ -1,7 +1,6 @@
 # jupyter-notebook-packages
 
-jupyter notebook with lots of packages and modules, based on [jupyter-notebook-base](https://hub.docker.com/r/wessm/jupyter-notebook-base/)
-
+jupyter notebook with lots of packages and modules
 
 runs as user jovyan
 

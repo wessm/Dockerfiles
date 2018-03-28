@@ -17,5 +17,7 @@ For details, see specific READMEs:
 
 * [orfeo-toolbox](https://github.com/wessm/Dockerfiles/tree/master/orfeo-toolbox/)
 
-* [qgis](https://github.com/wessm/Dockerfiles/tree/master/qgis/)
+* [qgis2](https://github.com/wessm/Dockerfiles/tree/master/qgis2/)
+
+* [qgis3](https://github.com/wessm/Dockerfiles/tree/master/qgis3/)
 

@@ -27,6 +27,7 @@ USER $NB_USER
 #RUN	conda install -c conda-forge gdal -y && \
 #RUN	Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")' && \
 RUN conda install GDAL -y && \
+	pip install mapboxgl && \
 	jupyter nbextension enable code_prettify/autopep8 && \
 	jupyter nbextension enable varInspector/main && \
 	jupyter nbextension enable codefolding/main && \

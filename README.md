@@ -13,6 +13,8 @@ For details, see specific READMEs:
 
 * [jupyter-notebook-packages](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages/)
 
+* [jupyter-notebook-packages2](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-packages2/)
+
 * [jupyter-notebook-r](https://github.com/wessm/Dockerfiles/tree/master/jupyter-notebook-r/)
 
 * [orfeo-toolbox](https://github.com/wessm/Dockerfiles/tree/master/orfeo-toolbox/)

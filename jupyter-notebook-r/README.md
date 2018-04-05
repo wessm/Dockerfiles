@@ -1,3 +1,3 @@
 # jupyter-notebook-r
 
-intermediate image, but fully functional, includes r and some r packages
+based on my base image, includes R and some R libraries

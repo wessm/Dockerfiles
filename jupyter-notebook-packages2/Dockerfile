@@ -8,7 +8,6 @@ USER $NB_USER
 RUN pip install gdal \
 		rasterstats \
 		fiona \
-		shapely \
 		pygeoj \
 		ipython-autotime
 

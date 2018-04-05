@@ -1,14 +1,14 @@
 # jupyter-notebook-packages
 
-jupyter notebook with lots of packages and modules
+based on my r notebook image
 
-runs as user jovyan
+python modules:
+* mapbox-gl
 
-can be run e.g. with
-
-```
-docker run --rm -it \
-    -p 8888:8888 \
-    -v ${HOME}:/home/jovyan/work \
-    wessm/jupyter-notebook-packages
-```
+jupyter notebook extensions:
+* autopep8
+* varInspector
+* codefolding
+* hinterland
+* runtools
+* scratchpad

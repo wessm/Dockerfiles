@@ -9,5 +9,6 @@ RUN pip install gdal \
 		rasterstats \
 		fiona \
 		pygeoj \
-		ipython-autotime
+		ipython-autotime \
+		sentinelhub
 

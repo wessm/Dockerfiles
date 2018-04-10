@@ -10,5 +10,6 @@ RUN pip install gdal \
 		fiona \
 		pygeoj \
 		ipython-autotime \
-		sentinelhub
+		sentinelhub \
+		sentinelsat
 

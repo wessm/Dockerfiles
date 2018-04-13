@@ -23,5 +23,7 @@ For details, see specific READMEs:
 
 * [qgis3](https://github.com/wessm/Dockerfiles/tree/master/qgis3/)
 
+* [s2_overview](https://github.com/wessm/Dockerfiles/tree/master/s2_overview/)
+
 * [sen2cor_docker](https://github.com/wessm/Dockerfiles/tree/master/sen2cor_docker/)
 

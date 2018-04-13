@@ -11,5 +11,6 @@ RUN pip install gdal \
 		pygeoj \
 		ipython-autotime \
 		sentinelhub \
-		sentinelsat
+		sentinelsat \
+		fastkml
 

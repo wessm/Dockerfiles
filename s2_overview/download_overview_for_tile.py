@@ -15,7 +15,7 @@ huey = RedisHuey('download_overview_for_tile')
 
 
 def load_config(section, key):
-    Config = ConfigParser()
+    Config = ConfigParser.ConfigParser()
     Config.read('./config.cfg')
     return Config.get(section, key)
 
@@ -46,7 +46,7 @@ def download_overview_for_tile(tile, date_from, date_to):
 
 
     DB_NAME = load_config('PostGIS', 'DB_NAME')
-    DB_HOST =  load_config('PostGIS', 'BH_HOST')
+    DB_HOST =  load_config('PostGIS', 'DB_HOST')
     DB_USER = load_config('PostGIS', 'DB_USER')
     DB_PW = load_config('PostGIS', 'DB_PW')
     DB_SCHEMA = load_config('PostGIS', 'DB_SCHEMA')

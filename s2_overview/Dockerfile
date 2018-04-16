@@ -84,11 +84,12 @@ USER mischa
 
 
 ADD *.py /home/mischa/
+ADD *.cfg /home/mischa/
 
-
+RUN mkdir /home/mischa/s2overview
 
 #CMD ["redis-server","--daemonize","yes"]
-ENTRYPOINT /usr/local/bin/redis-server --daemonize yes && /usr/local/bin/huey_consumer.py grab_s2_overview.huey -k process -w 1 --logfile=/home/mischa/huey.log
+ENTRYPOINT /usr/local/bin/redis-server --daemonize yes && /usr/local/bin/huey_consumer.py download_overview_for_tile.huey -k process -w 1 --logfile=/home/mischa/huey.log
 #ENTRYPOINT /bin/bash
 
 

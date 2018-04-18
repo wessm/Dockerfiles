@@ -12,5 +12,6 @@ RUN pip install gdal \
 		ipython-autotime \
 		sentinelhub \
 		sentinelsat \
-		fastkml
+		fastkml \
+		configparser
 

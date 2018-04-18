@@ -7,7 +7,7 @@ LABEL maintainer "Lufuno Vhengani <lvhengani@csir.co.za>"
 ENV DEBIAN_FRONTEND noninteractive
 
 ARG SEN2COR_VERSION='02.05.05'
-ARG SEN2COR_DIRECTORY='2.5.5' 
+ARG SEN2COR_DIRECTORY='2.5.5'
 ARG GOSU_VERSION='1.10'
 ARG SEN2COR="Sen2Cor-${SEN2COR_VERSION}-Linux64.run"
 RUN apt-get update && apt-get install -y \

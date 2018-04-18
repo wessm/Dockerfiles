@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/usr/bin/docker-compose -f docker-compose.yml run --rm l2a  /src/wrapper.sh "$@"
+echo 'done'

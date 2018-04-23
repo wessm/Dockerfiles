@@ -26,8 +26,8 @@ if [[ $? -ne 4 ]]; then
     exit 1
 fi
 
-OPTIONS=hrn:du
-LONGOPTIONS=help,resolution,ncores:,with-dem,delete-unzipped
+OPTIONS=hr:n:du
+LONGOPTIONS=help,resolution:,ncores:,with-dem,delete-unzipped
 
 
 
@@ -100,9 +100,9 @@ unzip -q $zipped_dir -d /var/sentinel2_data/unzipped_scenes
 # simply use sed to set number of processes
 sed "s:Processes>1<:Processes>$ncores<:" $with_dem >$with_dem_ncores
 
-
+cat $with_dem_ncores
 # Run sen2cor
-/Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem_final
+/Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem_ncores
 
 # Delete the unzipped file after running sen2cor
 if [ "$delete_unzipped" == "y" ]; then

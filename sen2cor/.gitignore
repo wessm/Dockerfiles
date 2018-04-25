@@ -8,3 +8,4 @@ SETUP.pdf
 run_sen2cor
 /src/sen2cor_processor.py
 .vscode
+.env

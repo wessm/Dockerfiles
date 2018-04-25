@@ -3,13 +3,16 @@
 #default values
 resolution=10
 with_dem=/root/sen2cor/2.5/cfg/L2A_GIPP_without_dem.xml
-delete_unzipped=n
+delete_unzipped=n#
+ncores=1
+with_dem_ncores=/root/sen2cor/2.5/cfg/L2A_GIPP_final_ncores.xml
 
 function usage()
 {
     printf "Wrapper script for Sen2Cor\n"
-    printf "Usage: ./run [-h] [-r {10,20,60}] [-d] [-u] SCENE-ID\n"
+    printf "Usage: ./run [-h] [-r {10,20,60}] [-d] [-u] [-n NCORES] SCENE-ID\n"
     printf "\n"
+	printf "  -n --ncores\t\tNumber of cores/processes to use\n"
     printf "  -h --help\t\tPrints this help and exits\n"
     printf "  -r --resolution\tTarget resolution, can be 10, 20 or 60m (default $resolution)\n"
     printf "  -d --with-dem\t\tUses a DEM (default off)\n"
@@ -23,8 +26,10 @@ if [[ $? -ne 4 ]]; then
     exit 1
 fi
 
-OPTIONS=hr:du
-LONGOPTIONS=help,resolution:,with-dem,delete-unzipped
+OPTIONS=hr:n:du
+LONGOPTIONS=help,resolution:,ncores:,with-dem,delete-unzipped
+
+
 
 # -temporarily store output to be able to check for errors
 # -e.g. use “--options” parameter by name to activate quoting/enhanced mode
@@ -50,6 +55,10 @@ while true; do
             resolution="$2"
             shift 2
             ;;
+		-n|--ncores)
+			ncores="$2"
+			shift 2
+			;;
         -d|--with-dem)
             with_dem=/root/sen2cor/2.5/cfg/L2A_GIPP_with_dem.xml
             shift
@@ -87,8 +96,13 @@ if [ -e $unzipped_dir ]; then
 fi
 unzip -q $zipped_dir -d /var/sentinel2_data/unzipped_scenes
 
+
+# simply use sed to set number of processes
+sed "s:Processes>1<:Processes>$ncores<:" $with_dem >$with_dem_ncores
+
+cat $with_dem_ncores
 # Run sen2cor
-/Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem
+/Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem_ncores
 
 # Delete the unzipped file after running sen2cor
 if [ "$delete_unzipped" == "y" ]; then

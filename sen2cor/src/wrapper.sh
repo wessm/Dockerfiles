@@ -85,16 +85,28 @@ if [[ $# -ne 1 ]]; then
     exit 4
 fi
 
-# Get input variables
-zipped_dir=/var/sentinel2_data/archives/"$1"
-unzipped_dir=/var/sentinel2_data/unzipped_scenes/"${1%.zip}.SAFE"
+#  look if it is a zipfile or a dir
+if [[ "$1" = *".zip"* ]]; then
 
-# unzip the file
-## Delete the previously unzipped file, it maybe corrupt or something went wrong.
-if [ -e $unzipped_dir ]; then
-   rm -r $unzipped_dir
+	# Get input variables
+	zipped_dir=/var/sentinel2_data/archives/"$1"
+	unzipped_dir=/var/sentinel2_data/unzipped_scenes/"${1%.zip}.SAFE"
+
+	# unzip the file
+	## Delete the previously unzipped file, it maybe corrupt or something went wrong.
+	if [ -e $unzipped_dir ]; then
+   		rm -r $unzipped_dir
+	fi
+	unzip -q $zipped_dir -d /var/sentinel2_data/unzipped_scenes
+elif [[ "$1" = *".SAFE"* ]]; then
+	unzipped_dir=/var/sentinel2_data/unzipped_scenes/"$1"
+else
+	usage
+    printf "A single scene id is required.\n"
+    exit 4
 fi
-unzip -q $zipped_dir -d /var/sentinel2_data/unzipped_scenes
+
+
 
 
 # simply use sed to set number of processes

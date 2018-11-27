@@ -112,7 +112,6 @@ fi
 # simply use sed to set number of processes
 sed "s:Processes>1<:Processes>$ncores<:" $with_dem >$with_dem_ncores
 
-cat $with_dem_ncores
 # Run sen2cor
 /Sen2Cor-02.05.05-Linux64/bin/L2A_Process $unzipped_dir --resolution=$resolution --GIP_L2A $with_dem_ncores
 

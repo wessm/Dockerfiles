@@ -13,5 +13,7 @@ RUN pip install gdal \
 		sentinelhub \
 		sentinelsat \
 		fastkml \
-		configparser
+		configparser \
+		tensorflow \
+		tensorflow-gpu
 

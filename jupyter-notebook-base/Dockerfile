@@ -16,7 +16,7 @@ RUN apt-get update -y && \
 	add-apt-repository ppa:ubuntugis/ppa && \
     apt-add-repository ppa:marutter/rdev -y && \
 	add-apt-repository -y ppa:opencpu/jq && \
-	sudo add-apt-repository ppa:johanvdw/saga-gis -y && \
+	add-apt-repository ppa:johanvdw/saga-gis -y && \
   	apt-get update && \
   	apt-get install --no-install-recommends -y \
 		libjq-dev \
@@ -24,6 +24,7 @@ RUN apt-get update -y && \
 		software-properties-common \
 		apt-utils \
 		libreadline-dev \
+		dans-gdal-scripts \
     	libgeos-dev \
 		exiftool \
 		libgdal-dev \

@@ -41,6 +41,9 @@ RUN apt-get update -y && \
 
 USER $NB_USER
 
+RUN printf '{"NotebookApp": {"password": "sha1:9c7660f55344:3ba6b9bdb6696defb487e4b14d15985251b28afd"}}' >> /home/jovyan/.jupyter/jupyter_notebook_config.json
+
+
 # use notebook-friendly backends in these images
 RUN conda install --yes \
     	'nb_conda' \

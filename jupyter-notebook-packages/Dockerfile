@@ -5,8 +5,7 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
 USER root
 
-RUN	add-apt-repository 'deb http://mirror.ibcp.fr/pub/CRAN/bin/linux/ubuntu xenial/' && \
-	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
+RUN	add-apt-repository 'deb http://mirror.ibcp.fr/pub/CRAN/bin/linux/ubuntu bionic/' && \
 	apt-get update -y && \
 	apt-get upgrade -y && \
 	apt-get build-dep python-gdal -y && \
@@ -24,8 +23,6 @@ RUN	add-apt-repository 'deb http://mirror.ibcp.fr/pub/CRAN/bin/linux/ubuntu xeni
 
 USER $NB_USER
 
-#RUN	conda install -c conda-forge gdal -y && \
-#RUN	Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")' && \
 RUN conda install GDAL -y && \
 	pip install mapboxgl && \
 	jupyter nbextension enable code_prettify/autopep8 && \

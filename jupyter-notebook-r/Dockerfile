@@ -31,4 +31,3 @@ RUN	conda install --channel conda-forge --yes \
     'r-plyr' && \
     conda clean -tipsy && fix-permissions $CONDA_DIR && \
     pip install rpy2
-	#Rscript -e 'install.packages("geojsonio", repo="https://cran.r-project.org/")'

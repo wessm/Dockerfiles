@@ -5,18 +5,18 @@ LABEL maintainer="Michael Wess <michael.wess@boku.ac.at>"
 
 USER root
 
-# libav-tools for matplotlib anim
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update -y && \
 	apt-get upgrade -y && \
 	apt-get install -y --no-install-recommends \
 		software-properties-common \
-		apt-utils && \
-	apt-add-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/" -y &&  \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
-	add-apt-repository ppa:ubuntugis/ppa && \
-    apt-add-repository ppa:marutter/rdev -y && \
-	add-apt-repository -y ppa:opencpu/jq && \
-	add-apt-repository ppa:johanvdw/saga-gis -y && \
+		apt-utils \
+		dirmngr \
+		gpg-agent && \
+	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 && \
+	apt-add-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)-cran35/" -y &&  \
+    	add-apt-repository ppa:ubuntugis/ubuntugis-unstable && \
   	apt-get update && \
   	apt-get install --no-install-recommends -y \
 		libjq-dev \
@@ -24,7 +24,7 @@ RUN apt-get update -y && \
 		software-properties-common \
 		apt-utils \
 		libreadline-dev \
-		dans-gdal-scripts \
+		libgdal20 \
     	libgeos-dev \
 		exiftool \
 		libgdal-dev \

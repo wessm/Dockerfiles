@@ -8,4 +8,7 @@ python modules:
 * fiona
 * pygeoj
 * ipython-autotime
+* tensorflow
+* many more...
+
 

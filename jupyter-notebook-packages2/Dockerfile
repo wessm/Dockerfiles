@@ -18,5 +18,6 @@ RUN pip install gdal \
 		fastkml \
 		configparser \
 		tensorflow \
-		tensorflow-gpu
+		tensorflow-gpu \
+		keras
 

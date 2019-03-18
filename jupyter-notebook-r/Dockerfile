@@ -10,24 +10,24 @@ RUN	conda install --channel conda-forge --yes \
     conda install --quiet --channel r --yes \
     'r-raster' \
     'r-base' \
-    'r-irkernel=0.7*' \
-    'r-plyr=1.8*' \
-    'r-devtools=1.12*' \
-    'r-tidyverse=1.0*' \
-    'r-shiny=0.14*' \
-    'r-rmarkdown=1.2*' \
-    'r-forecast=7.3*' \
-    'r-rsqlite=1.1*' \
-    'r-reshape2=1.4*' \
-    'r-nycflights13=0.2*' \
-    'r-caret=6.0*' \
-    'r-rcurl=1.95*' \
-    'r-crayon=1.3*' \
-    'r-randomforest=4.6*' \
-    'r-hexbin=1.27*' \
+    'r-irkernel' \
+    'r-plyr' \
+    'r-devtools' \
+    'r-tidyverse' \
+    'r-shiny' \
+    'r-rmarkdown' \
+    'r-forecast' \
+    'r-rsqlite' \
+    'r-reshape2' \
+    'r-nycflights13' \
+    'r-caret' \
+    'r-rcurl' \
+    'r-crayon' \
+    'r-randomforest' \
+    'r-hexbin' \
     'r-rgeos' \
     'r-jsonlite' \
     'r-rcurl' \
     'r-plyr' && \
-    conda clean -tipsy && fix-permissions $CONDA_DIR && \
+    fix-permissions $CONDA_DIR && \
     pip install rpy2

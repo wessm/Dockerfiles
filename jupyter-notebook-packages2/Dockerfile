@@ -12,6 +12,9 @@ RUN pip install gdal \
 		ipython-autotime \
 		sentinelhub \
 		sentinelsat \
+		pymongo \
+		retrying \
+		rasterio \
 		fastkml \
 		configparser \
 		tensorflow \

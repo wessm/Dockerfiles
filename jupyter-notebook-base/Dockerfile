@@ -20,7 +20,6 @@ RUN apt-get update -y && \
   	apt-get update && \
   	apt-get install --no-install-recommends -y \
 		libjq-dev \
-		saga \
 		software-properties-common \
 		apt-utils \
 		libreadline-dev \
@@ -36,22 +35,18 @@ RUN apt-get update -y && \
 		gdal-bin \
     	gcc && \
     apt-get clean autoclean && \
-	apt-get autoremove -y
-    #rm -rf /var/lib/(apt,dpkg,cache,log)/
-
-USER $NB_USER
-
-RUN printf '{"NotebookApp": {"password": "sha1:9c7660f55344:3ba6b9bdb6696defb487e4b14d15985251b28afd"}}' >> /home/jovyan/.jupyter/jupyter_notebook_config.json
-
-
-# use notebook-friendly backends in these images
-RUN conda install --yes \
+	apt-get autoremove -y && \
+	rm -rf /var/lib/apt/lists/* && \
+	printf '{"NotebookApp": {"password": "sha1:9c7660f55344:3ba6b9bdb6696defb487e4b14d15985251b28afd"}}' >> /home/jovyan/.jupyter/jupyter_notebook_config.json && \
+	conda install --yes \
     	'nb_conda' \
+		'conda-build' \
 		'line_profiler' && \
-    conda clean -tipsy && \
-	fix-permissions $CONDA_DIR && \
     conda install --channel conda-forge --yes \
 		'jupyter_contrib_nbextensions' && \
+	conda build purge-all && \
+	conda clean --all && \
+	fix-permissions $CONDA_DIR && \
 	pip install \
 		psycopg2-binary \
 		pyshp \
